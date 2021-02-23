@@ -10,7 +10,6 @@ def get_file_path(s_file):
     except:
         p_location = -1
     dirName = ''
-    # Karl what is this?
     if p_location >= 0:
         dirName = s_file[0: p_location + 1]
     else:
@@ -20,22 +19,22 @@ def get_file_path(s_file):
 
 
 # This function gets the file
-def getFilenamePart(sFilename):
+def getFilenamePart(s_filename):
     try:
-        int(sFilename.rindex('/'))
+        int(s_filename.rindex('/'))
     except:
-        return sFilename
+        return s_filename
 
-    pos = sFilename.rindex('/')
-    base_name = sFilename[pos + 1:]
+    pos = s_filename.rindex('/')
+    base_name = s_filename[pos + 1:]
     return base_name
 
 
 # .png
-def get_extension_part(sFilename):
+def get_extension_part(s_filename):
     try:
-        occurrences = [m.start() for m in re.finditer('\.', sFilename)]
-        return sFilename[occurrences[-1] + 1:]
+        occurrences = [m.start() for m in re.finditer('\.', s_filename)]
+        return s_filename[occurrences[-1] + 1:]
     except:
         pass
 
